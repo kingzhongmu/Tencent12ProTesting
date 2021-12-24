@@ -6,18 +6,21 @@ Mac下
 Settings-->Tools-->Python Integrated Tools， 把Default test runner换为pytest就可以了
 
 ## pytest测试用例识别
-#####测试文件：  
+##### 测试文件：  
 》  test_*.py \
-》  *_test.py 
-#####识别用例：  
+》  \*_test.py 
+##### 识别用例：  
 》  Test*类中包含的所有test_*的方法（测试类不能有__init__方法） \
 》  不在class中的所有的test_*方法 
-#####pytest也可以执行unittest框架写的用例和方法
+##### pytest也可以执行unittest框架写的用例和方法
 
 ## pytest执行
-#####在pycharm的py文件上直接运行（前提条件是配置了pytest运行）
-#####Terminal上运行
-pytest -h   -- 打印帮助信息
+
+##### 在pycharm的py文件上直接运行（前提条件是配置了pytest运行）
+
+##### Terminal上运行
+
+pytest -h   -- 打印帮助信息 \
 pytest xx.py   --直接运行,会搜索当前文件内所有可运行内容 \
 pytest -v -s xx.py   -- -v是打印详细运行日志 -s是带控制台输出结果 \
 pytest -v -s xx.py::类名  -- 运行模块的某个类 \
@@ -29,8 +32,8 @@ pytest -x 文件名  -- 一旦运行到报错就停止运行 \
 pytest --maxfail=3  -- 当运行错误达到3次的收停止运行 \
 
 ## pytest插件包
-#####1运行失败后重新运行：pytest-rerunfailures
-pip install pytest-rerunfailures
+##### 1运行失败后重新运行：pytest-rerunfailures
+pip install pytest-rerunfailures \
 pytest -v -s --reruns 3 test_xx.py   -- 测试失败后重新运行3次 \
 pytest -v --reruns 5 --reruns-delay 1  -- 失败后每次运行等待1s \
 
