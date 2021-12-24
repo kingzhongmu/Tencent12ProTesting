@@ -1,5 +1,8 @@
 ## 介绍
-腾讯课堂自动化项目演示
+pytest自动化项目演示
+
+##  markdown语法：
+https://markdown.com.cn/basic-syntax/
 
 ## pycharm中设置使用pytest
 Mac下
@@ -31,9 +34,31 @@ pytest -v -m "标记名"  -- 只运行有这个标记的用例 @pytest.mark.标�
 pytest -x 文件名  -- 一旦运行到报错就停止运行 \
 pytest --maxfail=3  -- 当运行错误达到3次的收停止运行 \
 
+
+## pytest的参数化
+格式：@pytest.mark.parametrize(para1, para2) \
+    para1: 要参数化的变量；字符串（逗号分隔），list，元祖 \
+    para2: 要参数化变量的值；list，元祖  \
+示例：@pytest.mark.parametrize('data1, data2, expect', yaml.safe_load(open('datas/add1.yml'))) \
+    注意，yaml读出来的对象一定要是一个list
+
+
 ## pytest插件包
+
 ##### 1运行失败后重新运行：pytest-rerunfailures
 pip install pytest-rerunfailures \
 pytest -v -s --reruns 3 test_xx.py   -- 测试失败后重新运行3次 \
 pytest -v --reruns 5 --reruns-delay 1  -- 失败后每次运行等待1s 
 
+##### 2断言失败后仍会继续执行：pytest-pytest-assume
+pip install pytest-assume 一个方法中写多条断言，
+即使前面的断言执行失败也会暂停执行，仍会继续执行下去，但是用例还是会执行失败
+程序中直接使用： pytest.assume(3 == 2) 代替assert(3 == 2)
+
+##### 3断言失败后仍会继续执行：pytest-pytest-assume
+
+
+
+
+# 备用知识：
+yaml入门：https://www.runoob.com/w3cnote/yaml-intro.html
