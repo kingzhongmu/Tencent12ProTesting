@@ -35,5 +35,5 @@ pytest --maxfail=3  -- 当运行错误达到3次的收停止运行 \
 ##### 1运行失败后重新运行：pytest-rerunfailures
 pip install pytest-rerunfailures \
 pytest -v -s --reruns 3 test_xx.py   -- 测试失败后重新运行3次 \
-pytest -v --reruns 5 --reruns-delay 1  -- 失败后每次运行等待1s \
+pytest -v --reruns 5 --reruns-delay 1  -- 失败后每次运行等待1s 
 
